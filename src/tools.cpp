@@ -34,17 +34,17 @@ VectorXd Tools::CalculateRMSE(const vector<VectorXd> &estimations,
 
 MatrixXd Tools::CalculateJacobian(const VectorXd& x_state) {
   MatrixXd Hj(3,4);
-	float px = x_state(0);
-	float py = x_state(1);
-	float vx = x_state(2);
-	float vy = x_state(3);
+  float px = x_state(0);
+  float py = x_state(1);
+  float vx = x_state(2);
+  float vy = x_state(3);
 
-	float epsilon = 0.0000001;
-	float px2 = px * px;
-	float py2 = py * py;
-	float px2_py2 = px2 + py2 + epsilon;
-	float sqrt_px2_py2 = sqrt(px2_py2);
-	float sqrt_px2_py2_3 = px2_py2 * sqrt_px2_py2;
+  float epsilon = 0.00001;
+  float px2 = px * px;
+  float py2 = py * py;
+  float px2_py2 = px2 + py2 + epsilon;
+  float sqrt_px2_py2 = sqrt(px2_py2);
+  float sqrt_px2_py2_3 = px2_py2 * sqrt_px2_py2;
 
   float dp_dpx = px / sqrt_px2_py2;
   float dp_dpy = py / sqrt_px2_py2;
